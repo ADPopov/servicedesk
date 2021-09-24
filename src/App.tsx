@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
+import {Container} from "./components/styles/Container.styled";
+import {Grid} from "./components/styles/Grid.styled";
+import { NavMenu } from './components/Menu';
+import { Header } from './components/Header';
+import { Logotype } from './components/Logotype';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const Content: FC = () => {
+    return <div>
+        Content
+    </div>;
+}
+
+const App: FC = () => {
+    return (
+        <Container>
+            <Grid templateColumns="184px 1fr" templateRows="96px calc(100vh - 224px)" gap="48px">
+                <Logotype />
+                <Header />
+                <NavMenu />
+                <Content />
+            </Grid>
+        </Container>
+    );
 }
 
 export default App;
