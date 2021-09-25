@@ -10,3 +10,7 @@ export const Flex = styled.div<FlexStyledProps>`
   align-items: ${(props) => props.align || 'center'};
   justify-content: ${(props) => props.justify || 'left'};
 `
+
+export const FlexContainer = styled.div`
+  display: flex;
+`

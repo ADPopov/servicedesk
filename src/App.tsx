@@ -1,14 +1,20 @@
 import React, {FC} from 'react';
-import {Container} from "./components/styles/Container.styled";
-import {Grid} from "./components/styles/Grid.styled";
-import { NavMenu } from './components/Menu';
-import { Header } from './components/Header';
-import { Logotype } from './components/Logotype';
+import {Container} from "./components/common/styles/Container.styled";
+import {Grid} from "./components/common/styles/Grid.styled";
+import { NavMenu} from './components/Menu/Menu';
+import { Header } from './components/Header/Header';
+import { Logotype } from './components/common/Logotype';
+import { Route, Switch } from 'react-router-dom';
+import { privateRouters } from './routes';
 
 export const Content: FC = () => {
-    return <div>
-        Content
-    </div>;
+    return <Switch>
+        {privateRouters.map(route =>
+            <Route path={route.path}
+                   exact={route.exact}
+                   component={route.component}
+                   key={route.path}/>)}
+    </Switch>;
 }
 
 const App: FC = () => {

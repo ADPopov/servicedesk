@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface GridProps {
-    templateRows: string,
-    templateColumns: string,
+    templateRows?: string,
+    templateColumns?: string,
     gap?: string
 }
 
@@ -15,8 +15,7 @@ interface GridItemProps {
 
 export const Grid = styled.div<GridProps>`
   display: grid;
-  height: 200px;
-  grid-auto-rows: 100px;
+
   grid-template-columns: ${(props) => props.templateColumns};
   grid-template-rows: ${(props) => props.templateRows};
   grid-gap:  ${(props) => props.gap || '2px'};

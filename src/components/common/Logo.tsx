@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '../styles/Icon.styled';
+import {Icon} from './styles/Icon.styled';
 import styled from "styled-components";
 
 

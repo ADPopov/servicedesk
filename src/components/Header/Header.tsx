@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
-import {Box} from './styles/Box.styled';
-import {Flex} from "./styles/Flex.styled";
-import {Avatar} from "./styles/Avatar.styled";
-import {Text} from "./styles/Text.styled";
+import {Box} from '../common/styles/Box.styled';
+import {Flex} from "../common/styles/Flex.styled";
+import {Avatar} from "../common/styles/Avatar.styled";
+import {Text} from "../common/styles/Text.styled";
 
 export const Header: FC = () => {
-    return <Box bg={'white'} borderRadius={"24px"}>
+    return <Box bg={'#F6F4F5'} borderRadius={"24px"}>
         <Flex justify='left' align="center">
             <Box>
                 <Avatar
@@ -13,7 +13,7 @@ export const Header: FC = () => {
             </Box>
             <Box>
                 <Text fontSize="14px" fontWeight={400} color="#6F6F72">Здравствуйте,</Text>
-                <Text fontSize="20px" fontWeight={600} color="#121417">Константин</Text>
+                <Text fontSize="20px" fontWeight={600} color="#121417">Александр</Text>
             </Box>
         </Flex>
     </Box>;
