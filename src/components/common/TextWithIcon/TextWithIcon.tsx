@@ -1,13 +1,13 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
-import {FlexContainer} from "../styles/Flex.styled";
+import {Flex} from "../styles/Flex.styled";
 
 interface TextWithIconProps {
     icon?: JSX.Element;
     children?: string;
 }
 
-export const TextWithIconWrapper = styled(FlexContainer)`
+export const TextWithIconWrapper = styled(Flex)`
   align-items: center;
   font-family: Gilroy;
   font-weight: 400;

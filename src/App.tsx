@@ -1,32 +1,28 @@
 import React, {FC} from 'react';
-import {Container} from "./components/common/styles/Container.styled";
+import {MainContainer} from "./components/common/styles/Container.styled";
 import {Grid} from "./components/common/styles/Grid.styled";
-import { NavMenu} from './components/Menu/Menu';
-import { Header } from './components/Header/Header';
-import { Logotype } from './components/common/Logotype';
-import { Route, Switch } from 'react-router-dom';
-import { privateRouters } from './routes';
+import {NavMenu} from './components/Menu/Menu';
+import {Header} from './components/Header/Header';
+import {Logotype} from './components/common/Logotype';
+import styled from "styled-components";
+import {Content} from './components/Content/Content';
 
-export const Content: FC = () => {
-    return <Switch>
-        {privateRouters.map(route =>
-            <Route path={route.path}
-                   exact={route.exact}
-                   component={route.component}
-                   key={route.path}/>)}
-    </Switch>;
-}
+const GridLayout = styled(Grid)`
+  grid-template-columns: 184px 1fr;
+  grid-template-rows: 96px calc(100vh - 224px);
+  grid-gap: 48px;
+`
 
 const App: FC = () => {
     return (
-        <Container>
-            <Grid templateColumns="184px 1fr" templateRows="96px calc(100vh - 224px)" gap="48px">
-                <Logotype />
-                <Header />
-                <NavMenu />
-                <Content />
-            </Grid>
-        </Container>
+        <MainContainer>
+            <GridLayout>
+                <Logotype/>
+                <Header/>
+                <NavMenu/>
+                <Content/>
+            </GridLayout>
+        </MainContainer>
     );
 }
 

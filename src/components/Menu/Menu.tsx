@@ -31,8 +31,9 @@ export const NavMenu: FC = () => {
     return (
         <Menu>
             <MenuItems>
-                {navigateItems.map((item) => <MenuItem icon={item.icon} to={item.to} exact={item.exact} key={item.to}>{item.text}</MenuItem>
-               )}
+                {navigateItems.map((item) => <MenuItem icon={item.icon} to={item.to} exact={item.exact}
+                                                       key={item.to}>{item.text}</MenuItem>
+                )}
             </MenuItems>
         </Menu>
     )
