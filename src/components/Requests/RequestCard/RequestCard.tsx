@@ -1,72 +1,65 @@
-import React from 'react';
-import styled from "styled-components";
-import FolderIcon, {SiProgress} from "../../common/icon/SiProgress";
+import React, {FC} from 'react';
+import SiProgress from "../../common/icon/SiProgress";
+import SiNeedsInfo from "../../common/icon/SiNeedsInfo";
+import SiDone from "../../common/icon/SiDone";
+import SiCanceled from "../../common/icon/SiCanceled";
+import {Date, IndicateIcon, IndicatorState, Place, RequestItem, RequestHeader, RequestInfo} from './RequestCard.styled';
 
-const RequestItem = styled.div`
-  display: flex;
-  border-radius: 16px;
-  background-color: rgba(198, 204, 236, 0.2);
-  margin: 0 24px 8px 0;
-  padding: 24px 0 24px 0;
-  align-items: center;
-  
-  > * {
-    &:last-child {
+interface RequestCardProps {
+    state?: "inProgress" | "needsInfo" | "done" | "canceled" | null;
+}
 
-      justify-content: flex-end
+const RequestCard: FC<RequestCardProps> = ({state}) => {
+    const RequestIndicators = {
+        'inProgress': {
+            IndicateColor: '#FCB80E',
+            indicateIcon: <SiProgress/>,
+            cardColor: 'rgba(248, 229, 187, 0.2)'
+        },
+        'needsInfo': {
+            IndicateColor: '#3454D1',
+            indicateIcon: <SiNeedsInfo/>,
+            cardColor: 'rgba(198, 204, 236, 0.2)'
+
+        },
+        'done': {
+            IndicateColor: '#6BD425',
+            indicateIcon: <SiDone/>,
+            cardColor: 'rgba(211, 236, 193, 0.2)'
+
+        },
+        'canceled': {
+            IndicateColor: '#F34213',
+            indicateIcon: <SiCanceled/>,
+            cardColor: 'rgba(245, 200, 189, 0.2)'
+
+        },
+        'default': {
+            IndicateColor: '#6F6F72',
+            indicateIcon: null,
+            cardColor: 'rgba(196, 194, 196, 0.15)'
+
+        }
     }
-  }
-`
+    const {IndicateColor, indicateIcon, cardColor} = RequestIndicators[state ?? 'default']
 
-const RequestHeader = styled.h3`
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  color: #121417;
-  margin: 0;
-`
+    const handleClick = () => {
+        console.log("hello")
+    }
 
-const RequestInfo = styled.h3`
-  display: flex;
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  margin: 7px 0;
-
-  div:nth-child(1) {
-    color: #6F6F72;
-    font-weight: 400;
-  }
-
-  div:nth-child(2) {
-    margin-left: 4px;
-    font-weight: 400;
-    color: #C4C2C4;
-  }
-`
-
-const Indicator = styled.div`
-  background-color: #3454D1;;
-  width: 4px;
-  height: 40px;
-  border-radius: 0px 4px 4px 0px;
-  box-shadow: 0px 0px 24px 4px #3454D1;
-  margin-right: 36px;
-`
-
-const RequestCard = () => {
     return (
-        <RequestItem>
-            <Indicator />
+        <RequestItem color={cardColor} onClick={handleClick}>
+            <IndicatorState color={IndicateColor}/>
             <div>
                 <RequestHeader>Не работает вентиляция</RequestHeader>
                 <RequestInfo>
-                    <div>Офис 2109</div>
-                    <div>• 21.02.2021 12:19</div>
+                    <Place>Офис 2109</Place>
+                    <Date>• 21.02.2021 12:19</Date>
                 </RequestInfo>
             </div>
+            <IndicateIcon>
+                {indicateIcon}
+            </IndicateIcon>
         </RequestItem>
     );
 };

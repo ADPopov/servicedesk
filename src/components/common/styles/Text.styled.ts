@@ -9,7 +9,6 @@ interface TextStyledProps {
 export const Text = styled.a<TextStyledProps>`
   display: block;
   font-size: ${(props) => props.fontSize || '14px'};
-  font-family: Gilroy;
   color: ${(props) => props.color || 'black'};
   font-weight: ${(props) => props.fontWeight || '400'};
 `

@@ -6,9 +6,12 @@ import {GlobalFonts} from "./assets/fonts/fonts";
 import {GlobalStyles} from "./components/common/styles/Global.styled";
 
 ReactDOM.render(
-    <BrowserRouter>
+    <div>
         <GlobalFonts/>
         <GlobalStyles/>
-        <App/>
-    </BrowserRouter>, document.getElementById('root')
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </div>
+    , document.getElementById('root')
 );

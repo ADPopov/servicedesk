@@ -1,14 +1,12 @@
 import React from "react";
 import RequestsList from "./RequestsList/RequestsList";
-import {WhiteCard } from "../common/styles/WhiteCard.styles";
-import { CardHeader } from "../common/styles/CardHeader.styled";
-
+import {WhiteCard, WhiteCardHeader} from "../common/styles/WhiteCard.styles";
 
 const Requests = () => {
     return (
         <WhiteCard>
-            <CardHeader>Действующие заявки</CardHeader>
-            <RequestsList />
+            <WhiteCardHeader>Действующие заявки</WhiteCardHeader>
+            <RequestsList/>
         </WhiteCard>
     );
 }

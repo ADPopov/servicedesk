@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const Stack = styled.div`
   overflow: auto;
-  height: 90%;
+  height: 100%;
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
     background-color: #EAE8E9;
     border-radius: 4px;
+    
   }
 
   ::-webkit-scrollbar-thumb {

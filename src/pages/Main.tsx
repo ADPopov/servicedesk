@@ -8,7 +8,7 @@ const WrapperGrid = styled(Grid)`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: calc(100vh - 224px);
   grid-gap: 48px;
-  overflow: hidden
+  overflow: hidden;
 `
 
 const Main = () => {
