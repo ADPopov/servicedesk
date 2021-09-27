@@ -6,7 +6,7 @@ const News = () => {
     return (
         <WhiteCard>
             <WhiteCardHeader>Новости</WhiteCardHeader>
-            <NewsList/>
+            <NewsList />
         </WhiteCard>
     );
 }

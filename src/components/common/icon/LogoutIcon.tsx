@@ -5,7 +5,6 @@ import { Icon } from '../styles/Icon.styled';
 export const Svg = styled(Icon)` 
   width: 24px; 
   height: 24px;
-  margin: 10px 18px;
 `
 
 export const FolderIcon: FC = () => {

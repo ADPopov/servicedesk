@@ -19,7 +19,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
     return (
         <Wrapper>
             <Link to={props.to} activeClassName={'active'} exact={props.exact}>
-                <TextWithIcon icon={props.icon}>{props.children}</TextWithIcon>
+                <TextWithIcon icon={props.icon} gap={'18px'}>{props.children}</TextWithIcon>
             </Link>
         </Wrapper>
     );

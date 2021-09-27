@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import HomeIcon from "../common/icon/HomeIcon";
-import {Menu, MenuItems} from './Menu.styled';
+import {Menu, MenuBottom, MenuItems, VersionText} from './Menu.styled';
 import MenuItem from "./MenuItem";
 import {RouteNames} from '../../routes';
 import FolderIcon from "../common/icon/FolderIcon";
+import LogoutIcon from "../common/icon/LogoutIcon";
 
 
 interface INavLinks {
@@ -35,6 +36,10 @@ export const NavMenu: FC = () => {
                                                        key={item.to}>{item.text}</MenuItem>
                 )}
             </MenuItems>
+            <MenuBottom>
+                <MenuItem icon={<LogoutIcon />} to={'/logout'}>Выйти</MenuItem>
+                <VersionText>Версия 1.0.1</VersionText>
+            </MenuBottom>
         </Menu>
     )
 }

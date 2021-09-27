@@ -7,6 +7,7 @@ const GridWrapped = styled(Grid)`
   grid-template-columns: 1fr;
   grid-template-rows: calc(100vh - 224px);
   grid-gap: 48px;
+  overflow: hidden;
 `
 
 const Archive = () => {

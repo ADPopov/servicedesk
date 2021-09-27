@@ -5,18 +5,24 @@ import {Flex} from "../styles/Flex.styled";
 interface TextWithIconProps {
     icon?: JSX.Element;
     children?: string;
+    gap?: string
 }
 
-export const TextWithIconWrapper = styled(Flex)`
+interface ITextWithIconWrapperProps {
+    gap?: string
+}
+
+export const TextWithIconWrapper = styled(Flex)<ITextWithIconWrapperProps>`
   align-items: center;
-  font-family: Gilroy;
-  font-weight: 400;
-  
+  height: 16px;
+  gap: ${({gap}) => gap || '18px'};
 `;
 
-const TextWithIcon: FC<TextWithIconProps> = ({icon, children}) => {
+
+
+const TextWithIcon: FC<TextWithIconProps> = ({icon, gap, children}) => {
     return(
-        <TextWithIconWrapper>
+        <TextWithIconWrapper gap={gap}>
             {icon ? icon : null}
             {children}
         </TextWithIconWrapper>

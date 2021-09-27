@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Stack = styled.div`
   overflow: auto;
-  height: 100%;
+  height: 90%;
   ::-webkit-scrollbar {
     width: 8px;
   }

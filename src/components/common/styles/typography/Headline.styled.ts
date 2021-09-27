@@ -16,9 +16,9 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 16px;
   font-weight: 600;
-  line-height: 20px;
   margin: 0;
   color: #4B4C4F;
+  
 `
 
 export const H4 = styled.h4`
