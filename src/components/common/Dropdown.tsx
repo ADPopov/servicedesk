@@ -72,7 +72,7 @@ const Icon = styled.div`
 
 const Title = styled(H4)`
   color: #F6F4F5;
-  padding: 3px 0px 3px 0;
+  padding: 3px 0 3px 0;
 `
 
 const Arrow = styled.div`
@@ -81,12 +81,12 @@ const Arrow = styled.div`
 `
 
 const Dropdown = () => {
-
     const options = ["По дате появления", "По алфавиту", "Еще по чему нибудь"];
+
     const [isOpen, setIsOpen] = useState(false);
-    const toggling = () => setIsOpen(!isOpen);
-    const [currentItem, setCurrentItem] = useState('');
     const [selectedOption, setSelectedOption] = useState('');
+
+    const toggling = () => setIsOpen(!isOpen);
 
     const onOptionClicked = (value: string) => () => {
         setSelectedOption(value);
