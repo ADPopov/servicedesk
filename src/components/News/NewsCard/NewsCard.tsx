@@ -15,7 +15,7 @@ const NewsCard: FC<{ feed: Feed }> = ({feed}) => {
                     <NewsDate>{feed.customDate}</NewsDate>
                 </NewsInfo>
             </div>
-            <NewsPicture src={'http://140.82.32.146/' + feed.pictureUrl}/>
+            <NewsPicture src={process.env.REACT_APP_BASE_URL + feed.pictureUrl}/>
         </NewsItem>
     );
 };

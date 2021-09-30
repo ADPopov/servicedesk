@@ -30,7 +30,7 @@ export const Header: FC = () => {
     return (
         <Wrapper>
             <UserAvatar
-                src={"http://140.82.32.146/" + user.userImage}/>
+                src={process.env.REACT_APP_BASE_URL + user.userImage}/>
             <div>
                 <Greetings>Здравствуйте,</Greetings>
                 <Username>{user.firstName}</Username>

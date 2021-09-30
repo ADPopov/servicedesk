@@ -44,7 +44,7 @@ export const AuthActionsCreators = {
         } else {
             const response = await axios.request<TokenResponse>({
                 method: "POST",
-                url: `http://140.82.32.146/oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
+                url: process.env.REACT_APP_BASE_URL + `/oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
                 auth: {
                     username: 'client',
                     password: 'secret'
