@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {CardHeader} from '../../common/styles/Card.styled';
 import {NewsDate, NewsDescriptionBox, NewsInfo, NewsItem, NewsPicture} from './NewsCard.styled';
+import {Feed} from "../../../models/Feed";
 
-const NewsCard = () => {
+const NewsCard: FC<{ feed: Feed }> = ({feed}) => {
     return (
         <NewsItem>
             <div>
-                <CardHeader>Проверка пожарных систем</CardHeader>
+                <CardHeader>{feed.title}</CardHeader>
                 <NewsDescriptionBox>
-                    Будут отключены лифты слева от главного входа
+                    {feed.description}
                 </NewsDescriptionBox>
                 <NewsInfo>
-                    <NewsDate>Сегодня, с 12:00 до 13:00</NewsDate>
+                    <NewsDate>{feed.customDate}</NewsDate>
                 </NewsInfo>
             </div>
-            <NewsPicture src={'http://pngimg.com/uploads/extinguisher/extinguisher_PNG47.png'} />
+            <NewsPicture src={'http://140.82.32.146/' + feed.pictureUrl}/>
         </NewsItem>
     );
 };

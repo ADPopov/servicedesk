@@ -1,18 +1,15 @@
 import React from 'react';
 import {Stack} from "../../common/styles/Stack.styled";
 import NewsCard from "../NewsCard/NewsCard";
+import {useTypeSelector} from "../../../hooks/useTypeSelector";
 
 const NewsList = () => {
+    const {feed} = useTypeSelector(state => state.feedReducer);
+
     return (
         <Stack>
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
+            {feed.map(f => <NewsCard feed={f}/>
+            )}
         </Stack>
     );
 };

@@ -22,7 +22,7 @@ export const RequestHeader = styled(H3)`
   color: #121417;
 `
 
-export const Date = styled(P3)`
+export const DateText = styled(P3)`
   color: #C4C2C4;
   margin-left: 4px;
 `

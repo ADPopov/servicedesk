@@ -4,6 +4,7 @@ import {WhiteCard} from '../common/styles/WhiteCard.styles';
 import styled from "styled-components";
 import {P3} from '../common/styles/typography/Paragraph.styled';
 import {H2} from '../common/styles/typography/Headline.styled';
+import {useTypeSelector} from "../../hooks/useTypeSelector";
 
 const Wrapper = styled(WhiteCard)`
   display: flex;
@@ -24,13 +25,15 @@ const Username = styled(H2)`
 `
 
 export const Header: FC = () => {
+    const {user} = useTypeSelector(store => store.userReducer);
+
     return (
         <Wrapper>
             <UserAvatar
-                src={"https://sun9-15.userapi.com/impg/qujaYOA67lxojKO2E9WaP6SiJEEwBwG3yQTy1w/BrYWWfq0Qlo.jpg?size=620x977&quality=96&sign=f2a313a8b84375fa58087efe545b7d70&type=album"}/>
+                src={"http://140.82.32.146/" + user.userImage}/>
             <div>
                 <Greetings>Здравствуйте,</Greetings>
-                <Username>Александр</Username>
+                <Username>{user.firstName}</Username>
             </div>
         </Wrapper>
     );

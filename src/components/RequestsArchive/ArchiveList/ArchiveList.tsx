@@ -1,18 +1,18 @@
 import React from 'react';
-import { Stack } from '../../common/styles/Stack.styled';
+import {Stack} from '../../common/styles/Stack.styled';
 import ArchiveCard from "../ArchiveCard/ArchiveCard";
+import {useTypeSelector} from "../../../hooks/useTypeSelector";
 
 const ArchiveList = () => {
+
+    const {archive} = useTypeSelector(state => state.archiveReducer);
+
     return (
         <Stack>
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
-            <ArchiveCard />
+            {archive ?
+                archive.map(t => <ArchiveCard ticket={t}/>) : null
+            }
+
         </Stack>
     );
 };

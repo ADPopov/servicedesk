@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from "styled-components";
 import {H1} from "../../common/styles/typography/Headline.styled";
 import {Flex} from "../../common/styles/Flex.styled";
 import {P3} from "../../common/styles/typography/Paragraph.styled";
 import {Card} from "../../common/styles/Card.styled";
+import {Ticket} from "../../../models/Ticket";
+import moment from "moment";
 
 interface ArchiveCardItemProps {
     color?: string
@@ -37,15 +39,22 @@ const CompletionInfo = styled(P3)`
   margin-left: auto;
 `
 
+interface ArchiveCardProps {
+    ticket: Ticket
+}
 
-const ArchiveCard = () => {
+const ArchiveCard: FC<ArchiveCardProps> = ({ticket}) => {
+    moment.locale('ru')
+    const createdDate = moment(ticket.created).format("MM.DD.YYYY hh:mm");
+    const modifiedDate = moment(ticket.modified).format("MM.DD.YYYY hh:mm")
+
     return (
         <ArchiveCardItem>
-            <RequestTop>№ 159753 — 15.02.2021 12:19 </RequestTop>
-            <RequestTitle>Чистка франкойлов</RequestTitle>
+            <RequestTop>№ {ticket.id} — {createdDate} </RequestTop>
+            <RequestTitle>{ticket.title}</RequestTitle>
             <RequestBottom>
-                <RequestType>Вентилляция</RequestType>
-                <CompletionInfo>Выполнил: Александр Лобушкин — 17.02.2021 12:41</CompletionInfo>
+                <RequestType>{ticket.ticketType.title}</RequestType>
+                <CompletionInfo>Выполнил: {ticket.responsibleByUser.fullName} — {modifiedDate}</CompletionInfo>
             </RequestBottom>
         </ArchiveCardItem>
     );

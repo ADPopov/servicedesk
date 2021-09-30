@@ -29,14 +29,12 @@ export const SelectButton = styled.div<{ isShow: boolean }>`
     &:last-child {
       margin-right: 0;
       margin-left: auto;
-      transform: ${({isShow}) => (isShow ? ' rotate(180deg)' : "none")
+      transform: ${({isShow}) => (isShow ? 'rotate(180deg)' : "none")
       }
     }
-
 `
 
 export const SelectOptions = styled.ul<{ isShow: boolean }>`
-
   position: absolute;
   box-shadow: 0 6px 14px -6px rgba(18, 20, 23, 0.12), 0px 10px 32px -4px rgba(18, 20, 23, 0.1);
   border-radius: 16px;
@@ -44,13 +42,7 @@ export const SelectOptions = styled.ul<{ isShow: boolean }>`
   width: 100%;
   background: #F6F4F5;
   padding: inherit;
-
-
-  visibility: ${props => (
-          props.isShow ? "visible" : "hidden")
-  };
-
-
+  visibility: ${props => (props.isShow ? "visible" : "hidden")};
 
   li {
     list-style-type: none;

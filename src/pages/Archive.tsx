@@ -13,7 +13,7 @@ const GridWrapped = styled(Grid)`
 const Archive = () => {
     return (
         <GridWrapped>
-            <RequestsArchive />
+            <RequestsArchive/>
         </GridWrapped>
     );
 };
