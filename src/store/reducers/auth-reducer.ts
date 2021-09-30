@@ -42,9 +42,9 @@ export const AuthActionsCreators = {
             dispatch<any>(FeedActionCreators.loadFeed())
             dispatch<any>(ArchiveActionsCreators.loadArchive())
         } else {
-            const response = await axios.request<TokenResponse>({
+            const response = await instance.request<TokenResponse>({
                 method: "POST",
-                url: process.env.REACT_APP_BASE_URL + `/oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
+                url: process.env.REACT_APP_BASE_URL + `oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
                 auth: {
                     username: 'client',
                     password: 'secret'
@@ -53,6 +53,7 @@ export const AuthActionsCreators = {
             if (response) {
                 localStorage.setItem('access_token', 'Bearer ' + response.data.access_token);
                 instance.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access_token;
+                console.log(instance.defaults.headers.common['Authorization'])
                 dispatch<any>(UserActionCreators.LoadUserData())
                 dispatch<any>(TicketActionCreators.loadTicket())
                 dispatch<any>(FeedActionCreators.loadFeed())
