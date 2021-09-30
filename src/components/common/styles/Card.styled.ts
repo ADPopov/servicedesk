@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {H2, H3} from "./typography/Headline.styled";
+import {H3} from "./typography/Headline.styled";
 
 export const Card = styled.div`
   border-radius: 16px;

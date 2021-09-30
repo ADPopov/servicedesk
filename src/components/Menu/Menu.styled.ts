@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 import {TextWithIconWrapper} from "../common/TextWithIcon/TextWithIcon";
-import {P2, P3} from "../common/styles/typography/Paragraph.styled";
+import {P2} from "../common/styles/typography/Paragraph.styled";
 
 export const Menu = styled.aside`
   display: block;
