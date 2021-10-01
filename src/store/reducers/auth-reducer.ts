@@ -44,11 +44,16 @@ export const AuthActionsCreators = {
         } else {
             const response = await instance.request<TokenResponse>({
                 method: "POST",
-                url: process.env.REACT_APP_BASE_URL + `oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
+                url: process.env.REACT_APP_BASE_URL + `oauth/token?&username=${username}&password=${password}`,
                 auth: {
                     username: 'client',
                     password: 'secret'
                 },
+                headers: {
+                    'scope': 'react',
+                    'grant_type': 'password',
+                    'Content-Type': 'application/json'
+                }
             })
             if (response) {
                 localStorage.setItem('access_token', 'Bearer ' + response.data.access_token);
