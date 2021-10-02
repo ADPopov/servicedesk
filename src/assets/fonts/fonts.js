@@ -1,6 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 
-import GilroyWoff from './Gilroy-Medium.woff';
+import GilroyWoff from "./Gilroy-Medium.woff";
 import GilroyWoff2 from './Gilroy-Medium.woff2';
 
 import GilroySemiboldWoff from './Gilroy-Semibold.woff';

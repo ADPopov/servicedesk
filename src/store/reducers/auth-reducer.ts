@@ -1,6 +1,5 @@
 import {AppDispatch} from "../index";
 import {TokenResponse} from "../../models/TokenResponse";
-import axios from "axios";
 import {instance} from "../../api/instance";
 import {UserActionCreators} from "./user-reducer";
 import {TicketActionCreators} from "./ticket-reducer";
@@ -44,15 +43,10 @@ export const AuthActionsCreators = {
         } else {
             const response = await instance.request<TokenResponse>({
                 method: "POST",
-                url: process.env.REACT_APP_BASE_URL + `oauth/token?&username=${username}&password=${password}`,
+                url: process.env.REACT_APP_BASE_URL + `oauth/token?grant_type=password&username=${username}&password=${password}&scope=read`,
                 auth: {
                     username: 'client',
                     password: 'secret'
-                },
-                headers: {
-                    'scope': 'react',
-                    'grant_type': 'password',
-                    'Content-Type': 'application/json'
                 }
             })
             if (response) {

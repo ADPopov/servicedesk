@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import SiProgress from "../../common/icon/SiProgress";
 import SiNeedsInfo from "../../common/icon/SiNeedsInfo";
 import SiDone from "../../common/icon/SiDone";
@@ -15,6 +15,7 @@ import {
 import {Ticket} from "../../../models/Ticket";
 import moment from "moment";
 import 'moment/locale/ru'
+import Chat from '../../Chat/Chat';
 
 interface RequestCardProps {
     status?: string;
@@ -98,29 +99,33 @@ const requestIndicators = {
 const RequestCard: FC<RequestCardProps> = ({status, ticket}) => {
 
     const indicate = requestIndicators[status as Title ?? 'Назначена'];
+    const [isOpen, setIsOpen] = useState(false)
 
     const handleClick = () => {
-        console.log("hello")
+        setIsOpen(true)
     }
-    console.log(ticket)
 
     moment.locale('ru')
     const date = moment(ticket.created).format("MM.DD.YYYY hh:mm")
 
     return (
-        <RequestItem color={indicate.cardColor} onClick={handleClick}>
-            <IndicatorState color={indicate.indicateColor}/>
-            <div>
-                <RequestHeader>{ticket.description}</RequestHeader>
-                <RequestInfo>
-                    <Place>{ticket.place.place}</Place>
-                    <DateText>• {date}</DateText>
-                </RequestInfo>
-            </div>
-            <IndicateIcon>
-                {indicate.indicateIcon}
-            </IndicateIcon>
-        </RequestItem>
+        <>
+            <RequestItem color={indicate.cardColor} onClick={handleClick}>
+                <IndicatorState color={indicate.indicateColor}/>
+                <div>
+                    <RequestHeader>{ticket.description}</RequestHeader>
+                    <RequestInfo>
+                        <Place>{ticket.place.place}</Place>
+                        <DateText>• {date}</DateText>
+                    </RequestInfo>
+                </div>
+                <IndicateIcon>
+                    {indicate.indicateIcon}
+                </IndicateIcon>
+            </RequestItem>
+            <Chat open={isOpen} onClose={() => setIsOpen(false)} ticket={ticket}/>
+        </>
+
     );
 };
 

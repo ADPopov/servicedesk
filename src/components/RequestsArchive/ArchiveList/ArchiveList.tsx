@@ -9,10 +9,7 @@ const ArchiveList = () => {
 
     return (
         <Stack>
-            {archive ?
-                archive.map(t => <ArchiveCard ticket={t}/>) : null
-            }
-
+            {archive ? archive.map(t => <ArchiveCard ticket={t}/>) : null}
         </Stack>
     );
 };
