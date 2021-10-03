@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import {H2} from "../common/styles/typography/Headline.styled";
-import IcClose from "../common/icon/IcClose";
+import {H2} from "../../common/styles/typography/Headline.styled";
+import IcClose from "../../common/icon/IcClose";
 import React, {FC} from "react";
 
-const ChatHeader = styled.div`
+const ChatHeader = styled.header`
   display: flex;
-  font-weight: 600;
-  font-size: 20px;
-  margin: 0;
+  height: 48px;
+  flex: 0 0 48px;
+  align-items: center;
 `
 const Title = styled(H2)`
   display: flex;

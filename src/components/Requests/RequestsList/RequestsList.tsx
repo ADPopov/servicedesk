@@ -7,9 +7,10 @@ import {useTypeSelector} from "../../../hooks/useTypeSelector";
 const RequestsList = () => {
 
     const {tickets} = useTypeSelector(state => state.ticketReducer);
+
     return (
-         <Stack>
-            {[...tickets].reverse().map(t => <RequestCard status={t.ticketStatus.title} ticket={t}/>)}
+        <Stack>
+            {[...tickets].reverse().map(t => <RequestCard key={t.id} status={t.ticketStatus.title} ticket={t}/>)}
         </Stack>
     );
 };

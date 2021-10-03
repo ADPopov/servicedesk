@@ -8,7 +8,7 @@ const NewsList = () => {
 
     return (
         <Stack>
-            {feed.map(f => <NewsCard feed={f}/>
+            {feed.map(f => <NewsCard key={f.id} feed={f}/>
             )}
         </Stack>
     );

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {IcMessageSend} from "../common/icon/IcMessageSend";
+import {IcMessageSend} from "../../common/icon/IcMessageSend";
 import React from "react";
 
 const MessageBottom = styled.div`

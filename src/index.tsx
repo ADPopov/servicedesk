@@ -5,7 +5,7 @@ import App from './App';
 import {GlobalFonts} from "./assets/fonts/fonts";
 import {GlobalStyles} from "./components/common/styles/Global.styled";
 import {Provider} from "react-redux";
-import { store } from './store';
+import {store} from './store';
 
 
 ReactDOM.render(
@@ -18,3 +18,4 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root')
 );
+

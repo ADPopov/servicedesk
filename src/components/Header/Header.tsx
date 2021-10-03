@@ -27,10 +27,12 @@ const Username = styled(H2)`
 export const Header: FC = () => {
     const {user} = useTypeSelector(store => store.userReducer);
 
+
     return (
         <Wrapper>
-            <UserAvatar
-                src={process.env.REACT_APP_BASE_URL + user.userImage}/>
+            {user.userImage ? <UserAvatar
+                src={ process.env.REACT_APP_BASE_URL + user.userImage}/> : null}
+
             <div>
                 <Greetings>Здравствуйте,</Greetings>
                 <Username>{user.firstName}</Username>
