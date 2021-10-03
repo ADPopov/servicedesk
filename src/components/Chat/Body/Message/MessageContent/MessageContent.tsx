@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {CheckIcon, MessageBody, MessageDate, MessageText} from "./MessageContent.styled";
 import IcMessageCheck from "../../../../common/icon/IcCheckMessage";
 
-export const MessageContent = () => {
+export const MessageContent: FC<{messageText: string, time: string}> = ({messageText, time}) => {
     return (
         <MessageBody>
-            <MessageText>Создавайте новую заявку, в категории
-                “Электрика”</MessageText>
-            <MessageDate>12:12</MessageDate>
+            <MessageText>{messageText}</MessageText>
+            <MessageDate>{time}</MessageDate>
             <CheckIcon><IcMessageCheck/></CheckIcon>
         </MessageBody>
     );

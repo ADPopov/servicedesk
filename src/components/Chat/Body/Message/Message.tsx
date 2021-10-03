@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {MessageItem, MessageList, MessageWrapper } from '../Body.styled';
 import {Author} from "./Author/Author";
 import {MessageContent} from "./MessageContent/MessageContent";
 
-const Messages = () => {
+const Messages: FC<{currentUser: boolean, time: string, messages: string[]}> = ({currentUser, time, messages}) => {
     return (
-        <MessageWrapper currentUser={false}>
+        <MessageWrapper currentUser={currentUser}>
             <MessageList>
-                <MessageItem>
+                {messages.map(m => <MessageItem>
                     <Author/>
-                    <MessageContent/>
-                </MessageItem>
+                    <MessageContent time={time} messageText={m}/>
+                </MessageItem>)}
             </MessageList>
         </MessageWrapper>
     );

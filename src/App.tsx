@@ -16,6 +16,8 @@ const GridLayout = styled(Grid)`
   grid-gap: 48px;
 `
 
+
+
 const App: FC = () => {
     const {login} = useAction();
 
@@ -23,48 +25,50 @@ const App: FC = () => {
         login('user2', '321');
     })
 
-    const client = new Client({
-        brokerURL: 'ws://140.82.32.146/ws2',
-        connectHeaders: {
-            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMyNDgzODUsInVzZXJfbmFtZSI6InVzZXIyIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9QT1dFUlVTRVIiXSwianRpIjoiYmFlNjQ1ZmEtZjI2ZC00OTRiLWFlMjUtOTFlZWY4YTk1MDMxIiwiY2xpZW50X2lkIjoiY2xpZW50Iiwic2NvcGUiOlsicmVhZCJdfQ.78sRhbfvrsDJmZry_e5nofbe2tPyCeUYeAah_Wl65_A"
-        },
-        debug: function (str) {
-            console.log(str);
-        },
-        reconnectDelay: 5000,
-        heartbeatIncoming: 10000,
-        heartbeatOutgoing: 10000,
-    });
-
-    client.onConnect = function (frame) {
-        console.log('onConnect');
-
-        const subscription = client.subscribe('/user/queue/replies', (message: any) => {
-            console.log('onSubscription');
-            if (message) {
-                alert('got message with body ' + message);
-            } else {
-                alert('got empty message');
-            }
-        });
-
-        const queue = {
-            "chatId": 59,
-            "messageType": 1,
-            "content": "Hello",
-            "ticketId": 59
-        }
-
-        client.publish({
-            destination: '/app/chat/user/ticket/59',
-            body: JSON.stringify(queue),
-            headers: {
-                "content-type": "application/json"
-            }
-        });
-    };
-
-    client.activate();
+    // const client = new Client({
+    //     brokerURL: 'ws://140.82.32.146/ws2',
+    //     connectHeaders: {
+    //         Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMyNDgzODUsInVzZXJfbmFtZSI6InVzZXIyIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9QT1dFUlVTRVIiXSwianRpIjoiYmFlNjQ1ZmEtZjI2ZC00OTRiLWFlMjUtOTFlZWY4YTk1MDMxIiwiY2xpZW50X2lkIjoiY2xpZW50Iiwic2NvcGUiOlsicmVhZCJdfQ.78sRhbfvrsDJmZry_e5nofbe2tPyCeUYeAah_Wl65_A"
+    //     },
+    //     debug: function (str) {
+    //         console.log(str);
+    //     },
+    //     reconnectDelay: 5000,
+    //     heartbeatIncoming: 10000,
+    //     heartbeatOutgoing: 10000,
+    // });
+    //
+    // client.onConnect = function (frame) {
+    //     console.log(frame);
+    //
+    //     const subscription = client.subscribe('/user/queue/replies', (message) => {
+    //         alert('got message with body ' + message);
+    //         if (message) {
+    //             alert('got message with body ' + message);
+    //         } else {
+    //             alert('got empty message');
+    //         }
+    //     });
+    //
+    //     const queue = {
+    //         "chatId": 1,
+    //         "messageType": 1,
+    //         "content": "Hello",
+    //         "ticketId": 59
+    //     }
+    //
+    //     console.log(JSON.stringify(queue))
+    //
+    //     client.publish({
+    //         destination: ' /app/chat/organization/59',
+    //         body: JSON.stringify(queue),
+    //         headers: {
+    //             "content-type": "application/json"
+    //         }
+    //     });
+    // };
+    //
+    // client.activate();
 
     return (
         <MainContainer>

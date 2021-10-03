@@ -33,7 +33,7 @@ const RequestsArchive: FC = () => {
                     ))}
                 </Select>
             </Header>
-            <ArchiveList/>
+            <ArchiveList />
         </WhiteCard>
     );
 };

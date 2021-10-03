@@ -6,7 +6,7 @@ const Requests = () => {
     return (
         <WhiteCard>
             <WhiteCardHeader>Действующие заявки</WhiteCardHeader>
-            <RequestsList/>
+            <RequestsList />
         </WhiteCard>
     );
 }
