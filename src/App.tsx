@@ -73,7 +73,7 @@ const App: FC = () => {
     return (
         <MainContainer>
             <GridLayout>
-                <Logotype/>
+                <div></div>
                 <Header/>
                 <NavMenu/>
                 <Content/>
