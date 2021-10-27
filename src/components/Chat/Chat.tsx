@@ -13,7 +13,6 @@ const Chat: FC<{ open: boolean, onClose: () => void, ticket: Ticket }> = ({open,
     const clickOutsideHandler = () => onClose();
     useOnClickOutside(modalContainerRef, clickOutsideHandler);
 
-
     if (!open) return null
 
     return ReactDOM.createPortal(

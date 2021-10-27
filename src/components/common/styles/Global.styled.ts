@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Gilroy';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #D2D2D2;
+    background-color: #DDDBDC;
   }
 
   :root {

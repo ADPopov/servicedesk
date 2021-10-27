@@ -105,7 +105,6 @@ const RequestCard: FC<RequestCardProps> = ({status, ticket}) => {
         setIsOpen(true)
     }
 
-
     moment.locale('ru')
     const date = moment(ticket.created).format("MM.DD.YYYY hh:mm")
 
